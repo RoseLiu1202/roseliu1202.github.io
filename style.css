@@ -221,3 +221,32 @@ a.card:hover .media { opacity: 0.85; transition: opacity 0.2s; }
 .section-label { padding-top: 96px; }
 .section-label + .list { padding-top: 24px; }
 @media (max-width: 760px) { .site-header { padding-left: 20px; } }
+
+/* ---------- Art works (v3) ---------- */
+.works-grid { padding-top: 64px; gap: 72px 53px; }
+.works-grid .card .media { aspect-ratio: auto; height: auto; }
+.works-grid .card h3 { margin-top: 20px; }
+.works-grid .card p { color: var(--muted); font-size: 13px; }
+
+.work-hero { width: 100%; max-height: 82vh; object-fit: cover; }
+.work-hero.contain { object-fit: contain; max-height: none; }
+.work-hero.video { max-width: 800px; margin: 0 auto; max-height: none; }
+.work { padding: 56px 50px 120px; max-width: 1110px; }
+.work h1 { font-size: 36px; font-weight: 600; letter-spacing: 0.01em; }
+.work .meta-lines { margin-top: 16px; font-size: 14px; color: var(--muted); line-height: 1.6; }
+.work audio { width: 100%; margin-top: 40px; }
+.work .label { margin: 56px 0 18px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.work .statement p { font-size: 16px; line-height: 1.65; margin-bottom: 22px; color: #e6e6e6; }
+.work .credit p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; padding: 0 50px 120px; }
+.gallery img { width: 100%; height: auto; }
+
+/* experiments gallery */
+.exp-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; padding: 64px 40px 40px; }
+.exp-grid > * { width: 100%; aspect-ratio: 511 / 260; object-fit: cover; background: #000; }
+
+@media (max-width: 760px) {
+  .work { padding: 40px 20px 80px; }
+  .work h1 { font-size: 28px; }
+  .gallery, .exp-grid { grid-template-columns: 1fr; padding-left: 20px; padding-right: 20px; }
+}
