@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FitAlign AR — Rose Liu</title>
+  <meta name="description" content="AR fitness app designed to support and maintain proper workout form.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400;1,9..40,500&family=Space+Grotesk:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="name" href="../">Rose Liu</a>
+    <nav class="site-nav">
+      <a href="../">Research</a>
+      <a href="../art/">Art</a>
+      <a href="../experiments/" class="current">Experiments</a>
+      <a href="../about/">About</a>
+    </nav>
+  </header>
+
+  <main class="case">
+    <h1>FitAlign AR</h1>
+    <p class="subtitle">AR fitness app designed to support and maintain proper workout form</p>
+    <p class="lede">An app that uses AI-powered pose detection to provide real-time workout form correction, reducing injury risk and improving training efficiency. With progress tracking, personalized feedback, and multimodal feedback through sound and visual cues, it offers an accessible and engaging fitness experience for all users.</p>
+
+    <div class="meta">
+      <div><h4>Timeline</h4><p>Nov–Jan 2025 (3 months)</p></div>
+      <div><h4>My Role</h4><p>User Research<br>UI/UX Design<br>Prototyping<br>iOS App Development</p></div>
+      <div><h4>Tools</h4><p>SwiftUI<br>Google ML Kit</p></div>
+      <div><h4>Collaborators</h4><p class="collab">Robert Walsh, Austin Bick</p></div>
+    </div>
+
+    <section>
+      <h2>Context</h2>
+      <p><strong>Problem Space:</strong> Learning and maintaining proper workout form is a significant challenge for beginners and remains critical for individuals at all fitness levels. Correct form is essential not only for effective workouts but also for injury prevention. Despite its importance, many people struggle with form due to a lack of accessible guidance, real-time feedback, or confidence in their ability to self-correct.</p>
+      <p><strong>Goal:</strong> Develop solutions that empower users to learn, correct, and maintain proper workout form, fostering confidence, reducing injury risk, and improving gym experiences for people of all fitness levels.</p>
+      <img class="figure" src="../assets/fitalign-context.png" alt="FitAlign AR context overview">
+    </section>
+
+    <section>
+      <h2>Research</h2>
+      <p><strong>Survey and Interview Insights:</strong></p>
+      <ul>
+        <li>Form uncertainty creates barriers for beginners</li>
+        <li>Inconsistency may stem from lack of accountability and visible progress</li>
+        <li>Social anxiety around filming limits some users' ability to track form</li>
+      </ul>
+      <p><strong>Quotes:</strong></p>
+      <div class="quotes">
+        <blockquote>"I get really self-conscious at the gym because I'm not sure if I'm doing certain exercises properly. I worry that people are watching me and judging my form."</blockquote>
+        <blockquote>"I feel too busy to go to the gym, so I'm really inconsistent with building muscle. Without a coach, my workouts feel less efficient, and I can't really see if I'm making progress or not."</blockquote>
+        <blockquote>"I want to film myself to check my form, but I feel awkward setting up my camera in the gym. Plus, I'm worried about other people being in the background of my videos—it feels like an invasion of their privacy."</blockquote>
+      </div>
+    </section>
+
+    <section>
+      <h2>Design</h2>
+      <p>FitAlign AR provides users with real-time workout guidance through AR-based pose tracking, audio feedback, and performance recording. The app is designed around four core user needs: tracking and reviewing workout progress, maintaining correct exercise form, minimizing social visibility in gym environments, and accessing analytical, professional-level feedback to support safe and effective training.</p>
+      <img class="figure" src="../assets/fitalign-design.png" alt="FitAlign AR app screens">
+    </section>
+
+    <section>
+      <h2>Implementation</h2>
+      <div class="impl-item">
+        <h3>Real-time pose detection with noise reduction</h3>
+        <p>The system processes on-device pose landmarks (via Google ML Kit) in real time and applies temporal smoothing to mitigate jitter in high-frequency pose signals.</p>
+      </div>
+      <div class="impl-item">
+        <h3>Angle-based form analysis</h3>
+        <p>Joint angles are computed using trigonometric vector calculations and evaluated with rule-based logic derived from exercise biomechanics, enabling interpretable and controllable form assessment.</p>
+      </div>
+      <div class="impl-item">
+        <h3>Multimodal feedback coupling</h3>
+        <p>Visual feedback remains continuously responsive, while audio coaching (AVFoundation) is discretely gated and delivered only when incorrect form persists, balancing responsiveness with cognitive load.</p>
+      </div>
+      <div class="demos">
+        <video src="../assets/fitalign-demo-1.mp4" autoplay muted loop playsinline></video>
+        <video src="../assets/fitalign-demo-2.mp4" autoplay muted loop playsinline></video>
+      </div>
+    </section>
+
+    <a class="back" href="../experiments/">← All experiments</a>
+  </main>
+</body>
+</html>
