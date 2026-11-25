@@ -7,14 +7,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Space+Grotesk:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=4">
+  <link rel="stylesheet" href="../style.css?v=5">
 </head>
 <body>
   <header class="site-header">
     <a class="name" href="../">Rose Liu</a>
     <nav class="site-nav">
       <a href="../">Research</a>
-      <a href="../art/">Art</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" aria-haspopup="true" aria-expanded="false">Art</button>
+        <div class="nav-menu">
+          <a href="../works/">Film &amp; Sound</a>
+          <a href="../stills/">Photography</a>
+          <a href="../editorial/">Editorials</a>
+        </div>
+      </div>
       <a href="../experiments/" class="current">Experiments</a>
       <a href="../about/">About</a>
     </nav>
@@ -94,53 +101,6 @@
     </div>
   </main>
 
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged work">
-    <button class="lb-btn lb-close" aria-label="Close">&times;</button>
-    <button class="lb-btn lb-prev" aria-label="Previous">&#8249;</button>
-    <button class="lb-btn lb-next" aria-label="Next">&#8250;</button>
-    <div class="lb-media"></div>
-    <div class="lb-cap"></div>
-  </div>
-
-  <script>
-    (() => {
-      const items = [...document.querySelectorAll('.exp-item')];
-      const lb = document.getElementById('lightbox');
-      const media = lb.querySelector('.lb-media');
-      const cap = lb.querySelector('.lb-cap');
-      let i = 0;
-      function show(n) {
-        i = (n + items.length) % items.length;
-        const src = items[i].querySelector('video, img');
-        const el = src.cloneNode();
-        if (el.tagName === 'VIDEO') { el.controls = true; el.muted = true; el.autoplay = true; el.loop = true; el.playsInline = true; }
-        el.removeAttribute('loading');
-        media.replaceChildren(el);
-        const t = items[i].querySelector('figcaption strong').textContent.trim();
-        const d = items[i].querySelector('figcaption span').textContent.trim();
-        cap.innerHTML = '';
-        if (t) { const s = document.createElement('strong'); s.textContent = t; cap.append(s); }
-        if (d) { const s = document.createElement('span'); s.textContent = d; cap.append(s); }
-        cap.hidden = !t && !d;
-      }
-      function open(n) { show(n); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
-      function close() { lb.classList.remove('open'); media.replaceChildren(); document.body.style.overflow = ''; items[i].focus(); }
-      items.forEach((it, n) => {
-        it.addEventListener('click', () => open(n));
-        it.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(n); } });
-      });
-      lb.addEventListener('click', e => { if (e.target === lb || e.target.classList.contains('lb-close')) close(); });
-      lb.querySelector('.lb-prev').addEventListener('click', e => { e.stopPropagation(); show(i - 1); });
-      lb.querySelector('.lb-next').addEventListener('click', e => { e.stopPropagation(); show(i + 1); });
-      media.addEventListener('click', e => e.stopPropagation());
-      cap.addEventListener('click', e => e.stopPropagation());
-      document.addEventListener('keydown', e => {
-        if (!lb.classList.contains('open')) return;
-        if (e.key === 'Escape') close();
-        if (e.key === 'ArrowLeft') show(i - 1);
-        if (e.key === 'ArrowRight') show(i + 1);
-      });
-    })();
-  </script>
+  <script src="../site.js?v=5"></script>
 </body>
 </html>
