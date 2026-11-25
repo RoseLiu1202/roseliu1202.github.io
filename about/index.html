@@ -7,16 +7,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Space+Grotesk:wght@400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css?v=4">
+  <link rel="stylesheet" href="../style.css?v=5">
 </head>
 <body>
   <header class="site-header">
     <a class="name" href="../">Rose Liu</a>
     <nav class="site-nav">
       <a href="../">Research</a>
-      <a href="../art/">Art</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" aria-haspopup="true" aria-expanded="false">Art</button>
+        <div class="nav-menu">
+          <a href="../works/">Film &amp; Sound</a>
+          <a href="../stills/">Photography</a>
+          <a href="../editorial/">Editorials</a>
+        </div>
+      </div>
       <a href="../experiments/">Experiments</a>
-      <a href="./" class="current">About</a>
+      <a href="../about/" class="current">About</a>
     </nav>
   </header>
 
@@ -123,5 +130,6 @@
       rows.forEach(r => r.hidden = b.dataset.k !== 'all' && r.dataset.k !== b.dataset.k);
     }));
   </script>
+  <script src="../site.js?v=5"></script>
 </body>
 </html>
